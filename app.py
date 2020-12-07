@@ -1,5 +1,7 @@
 import os
-from flask import Flask
+from flask import (
+    Flask, url_for, render_template,
+     redirect, request, session)
 if os.path.exists("env.py"):
     import env
 
@@ -7,8 +9,22 @@ if os.path.exists("env.py"):
 app = Flask(__name__)
 
 @app.route("/")
-def hello():
-    return "Hello world"
+@app.route("/home")
+def home():
+    return render_template("home.html")
+
+
+@app.route("/login")
+def login():
+    return render_template("login.html")
+
+
+
+@app.route("/register")
+def register():
+    return render_template("register.html")
+
+
 
 
 if __name__=="__main__":
