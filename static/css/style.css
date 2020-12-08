@@ -78,3 +78,7 @@ body {
   nav {
       background-color: #E27D60;
   }
+
+  .flash-message h4 {
+    line-height: 2;
+  }
