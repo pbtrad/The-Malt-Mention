@@ -6,7 +6,6 @@ chardet==2.3.0
 click==7.1.2
 configobj==5.0.6
 cryptography==1.2.3
-defer==1.0.6
 dnspython==2.0.0
 Flask==1.1.2
 Flask-PyMongo==2.3.0
