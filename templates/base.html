@@ -30,10 +30,14 @@
                     </div>
                     <!-- Navbar Right Side -->
                     <div class="navbar-nav">
+                    {% if session.user %}
+                        <a class="nav-item nav-link" href="{{ url_for('profile', username=session['user']) }}">Profile</a>
+                        <a class="nav-item nav-link" href="#">Create Post</a>
+                        <a class="nav-item nav-link" href="{{ url_for('logout') }}">Log Out</a>
+                    {% else %}
                         <a class="nav-item nav-link" href="{{ url_for('login') }}">Log In</a>
                         <a class="nav-item nav-link" href="{{ url_for('register') }}">Register</a>
-                        <a class="nav-item nav-link" href="{{ url_for('profile', username=session['user']) }}">Profile</a>
-                        
+                    {% endif %}
                     </div>
                 </div>
             </div>
