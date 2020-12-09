@@ -81,5 +81,12 @@ body {
 
   .flash-message h4 {
     line-height: 2;
-    text-align: center;
   }
+
+  .require {
+    color: #666;
+}
+label small {
+    color: #999;
+    font-weight: normal;
+}
