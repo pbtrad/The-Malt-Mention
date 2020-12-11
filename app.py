@@ -113,6 +113,22 @@ def blog():
     return render_template("blog.html", blog=blog)
 
 
+@app.route("/edit_post/<post_id>", methods=["GET", "POST"])
+def edit_post(post_id):
+    if request.method == "POST":
+        submit_edit = {
+            "post_title": request.form.get("post_title"),
+            "post_author": session["user"],
+            "post_content": request.form.get("post_content"),
+            "date_posted": request.form.get("date_posted")
+        }
+        mongo.db.posts.update({"_id": ObjectId(post_id)}, submit_edit)
+        flash("Blog Successfully Updated")
+        
+    post = mongo.db.posts.find_one({"_id": ObjectId(post_id)})
+    return render_template("edit_post.html", post=post, blog=blog)
+
+
 if __name__ == "__main__":
     app.run(host=os.environ.get("IP"),
             port=int(os.environ.get("PORT")),
