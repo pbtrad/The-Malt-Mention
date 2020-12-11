@@ -1,5 +1,6 @@
 body {
-    background: #67AECA;
+    /*background: #67AECA;*/
+    background: #CDC1A6;
     color: #333333;
     margin-top: 5rem;
   }
@@ -23,7 +24,7 @@ body {
   .content-section {
     background: #ffffff;
     padding: 10px 20px;
-    border: 1px solid #dddddd;
+    border: 1px solid #532a05;
     border-radius: 3px;
     margin-bottom: 20px;
   }
@@ -76,7 +77,7 @@ body {
   }
 
   nav {
-      background-color: #675682;
+      background-color: #94A356;
   }
 
   .flash-message h4 {
@@ -89,4 +90,27 @@ body {
 label small {
     color: #999;
     font-weight: normal;
+}
+
+.navbar-brand {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  
+}
+
+@include media-breakpoint-up(sm) {
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+}
+
+@include media-breakpoint-up(md) {
+  .navbar-brand {
+    font-size: 1.4rem;
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .navbar-brand {
+    font-size: 1.6rem;
+  }
 }
