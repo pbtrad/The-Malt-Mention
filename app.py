@@ -2,6 +2,8 @@ import os
 from flask import (
     Flask, url_for, render_template,
     redirect, request, session, flash)
+from datetime import datetime
+import time
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
@@ -104,7 +106,8 @@ def blog():
             "post_title": request.form.get("post_title"),
             "post_author": session["user"],
             "post_content": request.form.get("post_content"),
-            "date_posted": request.form.get("date_posted")
+            #"date_posted": request.form.get("date_posted")
+            "date_posted": datetime.now()
         }
         mongo.db.posts.insert_one(post)
         flash("Blog Successfully Added")
@@ -122,6 +125,7 @@ def edit_post(post_id):
             "post_content": request.form.get("post_content"),
             "date_posted": request.form.get("date_posted")
         }
+        
         mongo.db.posts.update({"_id": ObjectId(post_id)}, submit_edit)
         flash("Blog Successfully Updated")
         
