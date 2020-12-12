@@ -157,8 +157,9 @@ def edit_profile(username):
         mongo.db.users.update({"_id": ObjectId(username)}, edit_profile)
         flash("Profile Successfully Updated")
     
-    user = mongo.db.users.find_one({"_id": ObjectId(username)})
-    return render_template("edit_profile.html", edit_profile=edit_profile, user=user)
+        user = mongo.db.users.find_one({"_id": ObjectId(username)})
+    
+        return render_template("edit_profile.html", edit_profile=edit_profile, user=user, username=username)
 
 
 

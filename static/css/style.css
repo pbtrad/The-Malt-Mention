@@ -1,13 +1,22 @@
+
+
 body {
     /*background: #67AECA;*/
-    background: #CDC1A6;
-    color: #333333;
+    /*background: #CDC1A6;*/
+    background: url(../../static/images/whiskey-frontpage.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+    background-attachment: fixed;
+    
     margin-top: 5rem;
   }
   
-  h1, h2, h3, h4, h5, h6 {
-    color: #444444;
+  h1 {
+    color: #fafafa;
   }
+
   
   .site-header .navbar-nav .nav-link {
     color: #cbd5db;
@@ -90,6 +99,10 @@ body {
 label small {
     color: #999;
     font-weight: normal;
+}
+
+label {
+  color: #fafafa;
 }
 
 .navbar-brand {
