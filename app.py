@@ -40,7 +40,9 @@ def register():
 
         register = {
             "username": request.form.get("username").lower(),
-            "password": generate_password_hash(request.form.get("password"))
+            "password": generate_password_hash(request.form.get("password")),
+            "favourite_whiskey": request.form.get("favourite_whiskey"),
+            "user_country": request.form.get("user_country")
         }
         mongo.db.users.insert_one(register)
 
@@ -87,7 +89,7 @@ def profile(username):
         {"username": session["user"]})["username"]
 
     if session["user"]:
-        return render_template("profile.html", username=username)
+        return render_template("profile.html", username=username, profile=profile)
 
     return redirect(url_for("login"))
 
@@ -106,7 +108,7 @@ def blog():
             "post_title": request.form.get("post_title"),
             "post_author": session["user"],
             "post_content": request.form.get("post_content"),
-            #"date_posted": request.form.get("date_posted")
+            # "date_posted": request.form.get("date_posted")
             "date_posted": datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
         }
         mongo.db.posts.insert_one(post)
@@ -123,12 +125,12 @@ def edit_post(post_id):
             "post_title": request.form.get("post_title"),
             "post_author": session["user"],
             "post_content": request.form.get("post_content"),
-            "date_posted": request.form.get("date_posted")
+            "date_posted": datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
         }
-        
+
         mongo.db.posts.update({"_id": ObjectId(post_id)}, submit_edit)
         flash("Blog Successfully Updated")
-        
+
     post = mongo.db.posts.find_one({"_id": ObjectId(post_id)})
     return render_template("edit_post.html", post=post, blog=blog)
 
@@ -138,6 +140,26 @@ def delete_post(post_id):
     mongo.db.posts.remove({"_id": ObjectId(post_id)})
     flash("Post Successfully Deleted")
     return redirect(url_for("home"))
+
+
+@app.route("/edit_profile/<username>", methods=["GET", "POST"])
+def edit_profile(username):
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+
+    if session["user"]:
+        return render_template("edit_profile.html", username=username)
+    if request.method == "POST":
+        edit_profile = {
+            "favourite_whiskey": request.form.get("favourite_whiskey"),
+            "user_country": request.form.get("user_country")
+        }
+        mongo.db.users.update({"_id": ObjectId(username)}, edit_profile)
+        flash("Profile Successfully Updated")
+    
+    user = mongo.db.users.find_one({"_id": ObjectId(username)})
+    return render_template("edit_profile.html", edit_profile=edit_profile, user=user)
+
 
 
 if __name__ == "__main__":
