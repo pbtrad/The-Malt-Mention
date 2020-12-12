@@ -94,7 +94,7 @@ def profile(username):
 
 @app.route("/logout")
 def logout():
-    flash("You have been logged out")
+    flash("You are now logged out")
     session.pop("user")
     return redirect(url_for("login"))
 
@@ -107,7 +107,7 @@ def blog():
             "post_author": session["user"],
             "post_content": request.form.get("post_content"),
             #"date_posted": request.form.get("date_posted")
-            "date_posted": datetime.now()
+            "date_posted": datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
         }
         mongo.db.posts.insert_one(post)
         flash("Blog Successfully Added")
