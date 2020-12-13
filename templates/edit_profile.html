@@ -3,7 +3,7 @@
 
 <!--https://bbbootstrap.com/snippets/social-profile-container-63944396-->
 
-<div class="page-content page-container" id="page-content">
+<!--<div class="page-content page-container" id="page-content">
     <div class="padding">
         <div class="row container d-flex justify-content-center">
             <div class="col-xl-6 col-md-12">
@@ -20,33 +20,33 @@
                         <div class="col-sm-8">
                             <div class="card-block">
                                 <h6 class="m-b-20 p-b-5 b-b-default f-w-600">{{ username }}'s Profile</h6>
-                                <div class="row">
+                                <div class="row justify-content-center">
                                     <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">Country</p>
-                                        <h6 class="text-muted f-w-400">{{ user_country}}</h6>
+                                        <h6 class="f-w-400">{{ user.user_country}}</h6>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">Favourite Whiskey</p>
-                                        <h6 class="text-muted f-w-400">{{ favourite_whiskey }}</h6>
-                                    </div>
+                                        <h6 class="f-w-400">{{ user.favourite_whiskey }}</h6>
+                                    </div>-->
                                     <h1>Edit Profile</h1>
 
-                                    <form action="{{ url_for('edit_profile', username=session['user']) }}"
+                                    <form action="{{ url_for('edit_profile', user_id=user._id) }}"
                                         method="POST">
 
                                         <div class="form-group">
                                             <label for="favourite_whiskey">Whiskey Of Choice<span
                                                     class="require">*</span></label>
                                             <input type="text" class="form-control" id="favourite_whiskey"
-                                                name="favourite_whiskey" minlength="5" maxlength="50"
-                                                value="{{ favourite_whiskey }}" required />
+                                                name="favourite_whiskey"
+                                                value="{{ user.favourite_whiskey }}" required />
                                         </div>
 
                                         <div class="form-group">
                                             <label for="user_country">Country</label>
                                             <input type="text" class="form-control" id="user_country"
-                                                name="user_country" minlength="5" maxlength="50"
-                                                value="{{ username.user_country }}" required />
+                                                name="user_country"
+                                                value="{{ user.user_country }}" required />
                                         </div>
 
                                         <div class="form-group">
@@ -58,7 +58,7 @@
                     </button>-->
                                             <a class="btn btn-primary"
                                                 href="{{ url_for('profile', username=session['user']) }}"
-                                                role="button">Edit</a>
+                                                role="button" type="submit">Edit</a>
                                             <a class="btn btn-primary"
                                                 href="{{ url_for('profile', username=session['user']) }}"
                                                 role="button">Cancel</a>

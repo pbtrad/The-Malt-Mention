@@ -87,10 +87,9 @@ def profile(username):
     # grab session users username from database
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-
+    user = mongo.db.users.find_one({"username": request.form.get("username")})
     if session["user"]:
-        return render_template("profile.html", username=username, profile=profile)
-
+        return render_template("profile.html", username=username, profile=profile, user=user)
     return redirect(url_for("login"))
 
 
@@ -142,25 +141,21 @@ def delete_post(post_id):
     return redirect(url_for("home"))
 
 
-@app.route("/edit_profile/<username>", methods=["GET", "POST"])
-def edit_profile(username):
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-
-    if session["user"]:
-        return render_template("edit_profile.html", username=username)
+@app.route("/edit_profile/<user_id>", methods=["GET", "POST"])
+def edit_profile(user_id):
     if request.method == "POST":
-        edit_profile = {
+        submit_edit_profile = {
             "favourite_whiskey": request.form.get("favourite_whiskey"),
             "user_country": request.form.get("user_country")
         }
-        mongo.db.users.update({"_id": ObjectId(username)}, edit_profile)
-        flash("Profile Successfully Updated")
-    
-        user = mongo.db.users.find_one({"_id": ObjectId(username)})
-    
-        return render_template("edit_profile.html", edit_profile=edit_profile, user=user, username=username)
 
+        mongo.db.users.update({"_id": ObjectId(user_id)}, submit_edit_profile)
+        flash("Profile Successfully Updated")
+    user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    
+    return render_template("edit_profile.html", user=user)
 
 
 if __name__ == "__main__":

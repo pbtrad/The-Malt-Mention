@@ -10,7 +10,7 @@
                 <div class="card user-card-full">
                     <div class="row m-l-0 m-r-0">
                         <div class="col-sm-4 bg-c-lite-green user-profile">
-                            <div class="card-block text-center text-white">
+                            <div class="card-block text-center">
                                 <div class="m-b-25"> <img src="https://img.icons8.com/bubbles/100/000000/user.png"
                                         class="img-radius" alt="User-Profile-Image"> </div>
                                 <h6 class="f-w-600">{{ username }}</h6>
@@ -20,20 +20,23 @@
                         <div class="col-sm-8">
                             <div class="card-block">
                                 <h6 class="m-b-20 p-b-5 b-b-default f-w-600">{{ username }}'s Profile</h6>
-                                <div class="row">
+                                <div class="row justify-content-center">
                                     <div class="col-sm-6">
+
                                         <p class="m-b-10 f-w-600">Country</p>
-                                        <h6 class="text-muted f-w-400">{{ user_country }}</h6>
+
+                                        <h6 class="f-w-400">{{ user.user_country }}</h6>
                                     </div>
                                     <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">Favourite Whiskey</p>
-                                        <h6 class="text-muted f-w-400">{{ favourite_whiskey }}</h6>
+                                        <h6 class="f-w-400">{{ user.favourite_whiskey }}</h6>
                                     </div>
 
                                     <!--<a href="#" class="btn btn-danger" role="button">Delete</a>-->
-                                    <a href="{{ url_for('edit_profile', username=session['user']) }}" class="btn btn-info"
+                                    
+                                    <a href="{{ url_for('edit_profile', user_id=user._id) }}" class="btn btn-info"
                                         role="button">Edit</a>
-
+                                    
                                 </div>
 
 
