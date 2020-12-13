@@ -35,7 +35,7 @@ def register():
             {"username": request.form.get("username").lower()})
 
         if existing_user:
-            flash("Username already exists")
+            flash("Username already exists", 'danger')
             return redirect(url_for("register"))
 
         register = {
@@ -71,12 +71,12 @@ def login():
                 return redirect(url_for("profile", username=session["user"]))
             else:
                 # invalid password match
-                flash("Incorrect Username and/or Password")
+                flash("Incorrect Username and/or Password", 'danger')
                 return redirect(url_for("login"))
 
         else:
             # username doesn't exist
-            flash("Incorrect Username and/or Password")
+            flash("Incorrect Username and/or Password", 'danger')
             return redirect(url_for("login"))
 
     return render_template("login.html")
@@ -95,7 +95,7 @@ def profile(username):
 
 @app.route("/logout")
 def logout():
-    flash("You are now logged out")
+    flash("You are now logged out", 'success')
     session.pop("user")
     return redirect(url_for("login"))
 
@@ -110,7 +110,7 @@ def blog():
             "date_posted": datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
         }
         mongo.db.posts.insert_one(post)
-        flash("Blog Successfully Added")
+        flash("Blog Successfully Added", 'success')
         return redirect(url_for("home"))
     blogs = mongo.db.post_content.find().sort("post_content")
     return render_template("blog.html", blog=blog)
@@ -127,7 +127,7 @@ def edit_post(post_id):
         }
 
         mongo.db.posts.update({"_id": ObjectId(post_id)}, submit_edit)
-        flash("Blog Successfully Updated")
+        flash("Blog Successfully Updated", 'success')
 
     post = mongo.db.posts.find_one({"_id": ObjectId(post_id)})
     return render_template("edit_post.html", post=post, blog=blog)
@@ -136,7 +136,7 @@ def edit_post(post_id):
 @app.route("/delete_post/<post_id>")
 def delete_post(post_id):
     mongo.db.posts.remove({"_id": ObjectId(post_id)})
-    flash("Post Successfully Deleted")
+    flash("Post Successfully Deleted", 'success')
     return redirect(url_for("home"))
 
 
@@ -149,7 +149,7 @@ def edit_profile(user_id):
         }
 
         mongo.db.users.update({"_id": ObjectId(user_id)}, submit_edit_profile)
-        flash("Profile Successfully Updated")
+        flash("Profile Successfully Updated", 'success')
     user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
