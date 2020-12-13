@@ -4,11 +4,22 @@ from flask import (
     redirect, request, session, flash)
 from datetime import datetime
 import time
+from flask_gravatar import Gravatar
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
     import env
+
+
+gravatar = Gravatar(
+                    size=100,
+                    rating='g',
+                    default='retro',
+                    force_default=False,
+                    force_lower=False,
+                    use_ssl=False,
+                    base_url=None)
 
 
 app = Flask(__name__)

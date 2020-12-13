@@ -132,7 +132,7 @@ label {
 }
 
 .user-card-full {
-  overflow: hidden
+  overflow: hidden;
 }
 
 .card {
@@ -165,7 +165,7 @@ label {
 }
 
 .card-block {
-  padding: 1.25rem
+  padding: 1.25rem;
 }
 
 .m-b-25 {
@@ -246,3 +246,6 @@ h6 {
   margin-top: 20px
 }
 
+#edit-button {
+  margin-top: 6rem;
+}
