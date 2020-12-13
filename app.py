@@ -107,7 +107,6 @@ def blog():
             "post_title": request.form.get("post_title"),
             "post_author": session["user"],
             "post_content": request.form.get("post_content"),
-            # "date_posted": request.form.get("date_posted")
             "date_posted": datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
         }
         mongo.db.posts.insert_one(post)
