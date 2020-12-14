@@ -248,10 +248,14 @@ h6 {
 }
 
 @media only screen and (max-width: 600px) {
-  .page-content {
-    width: 100vw;
-    margin: 0 auto;
+  .page-content *{
+    
   }
+
+.d-flex {
+  padding-right: 0;
+}
+
   .m-b-20 {
     font-size: 12px;
   }
