@@ -1,25 +1,26 @@
 {% extends "base.html" %}
 {% block content %}
 
-    {% for post in posts %}
 
+{% for post in posts %}
 <article class="media content-section">
     <div class="media-body">
         <div class="article-metadata">
             {% if session.user|lower == post.post_author|lower %}
-            <a href="{{ url_for('delete_post', post_id=post._id) }}" class="btn btn-danger btn-sm" role="button">Delete</a>
+            <a href="{{ url_for('delete_post', post_id=post._id) }}" class="btn btn-danger btn-sm"
+                role="button">Delete</a>
             <a href="{{ url_for('edit_post', post_id=post._id) }}" class="btn btn-info btn-sm" role="button">Edit</a>
             {% endif %}
             <!--<a class="mr-2" href="#">{{ post.post_author }}</a>-->
-            <small class="text-muted">{{ post.date_posted }}</small>
             <small class="text-muted">{{ post.post_author }}</small>
+            <small class="text-muted">{{ post.date_posted }}</small>
         </div>
         <h2 class="article-title">{{ post.post_title }}</h2>
         <p class="article-content">{{ post.post_content }}</p>
-          
+
     </div>
 </article>
-            
-    {% endfor %}
+
+{% endfor %}
 
 {% endblock %}
