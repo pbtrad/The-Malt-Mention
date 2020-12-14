@@ -12,7 +12,10 @@ body {
     color: #fafafa;
   }
 
-  
+  .btn {
+    background-color: #728A8C;
+  }
+
   .site-header .navbar-nav .nav-link {
     color: #cbd5db;
   }
@@ -249,3 +252,4 @@ h6 {
 #edit-button {
   margin-top: 6rem;
 }
+

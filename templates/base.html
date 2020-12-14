@@ -25,14 +25,14 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarToggle">
                     <div class="navbar-nav mr-auto">
-                        <a class="nav-item nav-link" href="{{ url_for('home') }}">Home</a>
+                        <a class="nav-item nav-link" href="{{ url_for('home') }}">Whiskey Reviews</a>
                         
                     </div>
                     <!-- Navbar Right Side -->
                     <div class="navbar-nav">
                     {% if session.user %}
                         <a class="nav-item nav-link" href="{{ url_for('profile', username=session['user']) }}">Profile</a>
-                        <a class="nav-item nav-link" href="{{ url_for('blog') }}">Create Post</a>
+                        <a class="nav-item nav-link" href="{{ url_for('blog') }}">Submit Review</a>
                         <a class="nav-item nav-link" href="{{ url_for('logout') }}">Log Out</a>
                     {% else %}
                         <a class="nav-item nav-link" href="{{ url_for('login') }}">Log In</a>

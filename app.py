@@ -121,7 +121,7 @@ def blog():
             "date_posted": datetime.now().strftime("%m/%d/%Y, %H:%M:%S")
         }
         mongo.db.posts.insert_one(post)
-        flash("Blog Successfully Added", 'success')
+        flash("Review Successfully Added", 'success')
         return redirect(url_for("home"))
     blogs = mongo.db.post_content.find().sort("post_content")
     return render_template("blog.html", blog=blog)
@@ -138,7 +138,7 @@ def edit_post(post_id):
         }
 
         mongo.db.posts.update({"_id": ObjectId(post_id)}, submit_edit)
-        flash("Blog Successfully Updated", 'success')
+        flash("Review Successfully Updated", 'success')
 
     post = mongo.db.posts.find_one({"_id": ObjectId(post_id)})
     return render_template("edit_post.html", post=post, blog=blog)
@@ -147,7 +147,7 @@ def edit_post(post_id):
 @app.route("/delete_post/<post_id>")
 def delete_post(post_id):
     mongo.db.posts.remove({"_id": ObjectId(post_id)})
-    flash("Post Successfully Deleted", 'success')
+    flash("Review Successfully Deleted", 'success')
     return redirect(url_for("home"))
 
 
