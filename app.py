@@ -52,8 +52,8 @@ def register():
         register = {
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password")),
-            "favourite_whiskey": request.form.get("favourite_whiskey"),
-            "user_country": request.form.get("user_country")
+            "favourite_whiskey": request.form.get("favourite_whiskey").lower(),
+            "user_country": request.form.get("user_country").lower()
         }
         mongo.db.users.insert_one(register)
 
@@ -139,7 +139,7 @@ def edit_post(post_id):
 
         mongo.db.posts.update({"_id": ObjectId(post_id)}, submit_edit)
         flash("Review Successfully Updated", 'success')
-
+        return redirect(url_for("home"))
     post = mongo.db.posts.find_one({"_id": ObjectId(post_id)})
     return render_template("edit_post.html", post=post, blog=blog)
 

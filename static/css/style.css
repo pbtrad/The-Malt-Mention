@@ -1,8 +1,6 @@
 
 
 body {
-    /*background: #67AECA;*/
-    /*background: #CDC1A6;*/
     background: url(../../static/images/whiskey-frontpage.jpg) no-repeat center center fixed;
     background-size: cover;
     margin-top: 5rem;
@@ -40,10 +38,7 @@ body {
     color: #444444;
   }
   
-  a.article-title:hover {
-    color: #428bca;
-    text-decoration: none;
-  }
+  
   
   .article-content {
     white-space: pre-line;
