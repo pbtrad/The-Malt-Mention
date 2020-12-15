@@ -34,7 +34,8 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/home")
 def home():
-    posts = mongo.db.posts.find()
+    #posts = list(mongo.db.posts.find())
+    posts = mongo.db.posts.find().sort("date_posted", -1)
     return render_template("home.html", posts=posts)
 
 
@@ -53,7 +54,7 @@ def register():
             "username": request.form.get("username").lower(),
             "password": generate_password_hash(request.form.get("password")),
             "favourite_whiskey": request.form.get("favourite_whiskey").lower(),
-            "user_country": request.form.get("user_country").lower()
+            "user_country": request.form.get("user_country").lower
         }
         mongo.db.users.insert_one(register)
 
@@ -99,7 +100,6 @@ def profile(username):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
     user = mongo.db.users.find_one({"username": request.form.get("username")})
-    
     if session["user"]:
         return render_template("profile.html", username=username, profile=profile, user=user)
     return redirect(url_for("login"))
@@ -124,8 +124,8 @@ def blog():
         mongo.db.posts.insert_one(post)
         flash("Review Successfully Added", 'success')
         return redirect(url_for("home"))
-    blogs = mongo.db.post_content.find().sort("post_content")
-    return render_template("blog.html", blog=blog)
+    posts = mongo.db.posts.find().sort("date_posted", 1)
+    return render_template("blog.html", posts=posts)
 
 
 @app.route("/edit_post/<post_id>", methods=["GET", "POST"])
@@ -140,9 +140,10 @@ def edit_post(post_id):
 
         mongo.db.posts.update({"_id": ObjectId(post_id)}, submit_edit)
         flash("Review Successfully Updated", 'success')
-        return redirect(url_for("home"))
+    
     post = mongo.db.posts.find_one({"_id": ObjectId(post_id)})
-    return render_template("edit_post.html", post=post, blog=blog)
+    blogs = mongo.db.post_content.find().sort("date", 1)
+    return render_template("edit_post.html", post=post, blogs=blogs)
 
 
 @app.route("/delete_post/<post_id>")
