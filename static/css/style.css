@@ -4,9 +4,13 @@ body {
     background: url(../../static/images/whiskey-frontpage.jpg) no-repeat center center fixed;
     background-size: cover;
     margin-top: 5rem;
+    overflow: scroll;
+    overflow-x: hidden;
   }
 
-
+.accordion-card {
+  background-color: #728A8C;
+}
 
   h1 {
     color: #fafafa;
@@ -90,6 +94,7 @@ body {
 
   .flashes {
     color: #fafafa;
+    margin: 0 auto;
   }
 
   .require {
@@ -244,11 +249,13 @@ h6 {
   margin-top: 6rem;
 }
 
-@media only screen and (max-width: 600px) {
-  .page-content *{
-    
-  }
+.sub-head {
+  font-size: larger;
+  color: #fafafa;
+}
 
+@media only screen and (max-width: 600px) {
+  
 .d-flex {
   padding-right: 0;
 }
