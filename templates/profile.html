@@ -53,5 +53,24 @@
     
 </div>
 
+<div id="accordion">
+{% for post in posts %}
+    <div class="card">
+      <div class="card-header">
+        <a class="card-link" data-toggle="collapse" href="#collapseOne">
+          {{ post.post_title }}
+        </a>
+      </div>
+      <div id="collapseOne" class="collapse show" data-parent="#accordion">
+        <div class="card-body">
+          {{ post.post_content }}
+        </div>
+      </div>
+    </div>
+  
+    
+  
+  </div>
+{% endfor %}
 
 {% endblock %}

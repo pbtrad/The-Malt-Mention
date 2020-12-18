@@ -100,8 +100,9 @@ def profile(username):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
     user = mongo.db.users.find_one({"username": request.form.get("username")})
+    posts = list(mongo.db.posts.find({"post_author": session["user"]}).sort("date_posted", -1))
     if session["user"]:
-        return render_template("profile.html", username=username, profile=profile, user=user)
+        return render_template("profile.html", username=username, profile=profile, user=user, posts=posts)
     return redirect(url_for("login"))
 
 
