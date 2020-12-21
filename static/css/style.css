@@ -254,6 +254,9 @@ h6 {
   color: #fafafa;
 }
 
+
+/* Media Queries*/
+
 @media only screen and (max-width: 600px) {
   
 .d-flex {

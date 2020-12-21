@@ -1,6 +1,29 @@
 {% extends "base.html" %}
 {% block content %}
-
+<button type="button" class="btn btn-primary invisible" data-toggle="modal" data-target="#exampleModalLong">
+    Launch demo modal
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">The Malt Mention</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Welcome to The Malt Mention, a community of drunks who like to praise or rant about whiskeys, but because there's alcohol involved this community of lushes is only for grown ups, so if you are under 18 or whatever local drinking age, do not enter!! 
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
 {% for post in posts %}
 <article class="media content-section">

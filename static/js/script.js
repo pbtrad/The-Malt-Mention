@@ -15,3 +15,10 @@
       });
     }, false);
   })();
+
+  $(window).on('load',function(){
+    if (!sessionStorage.getItem('shown-modal')){
+      $('#exampleModalLong').modal('show');
+      sessionStorage.setItem('shown-modal', 'true');
+    }
+  });
