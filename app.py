@@ -13,13 +13,13 @@ if os.path.exists("env.py"):
 
 
 gravatar = Gravatar(
-                    size=100,
-                    rating='g',
-                    default='retro',
-                    force_default=False,
-                    force_lower=False,
-                    use_ssl=False,
-                    base_url=None)
+    size=100,
+    rating='g',
+    default='retro',
+    force_default=False,
+    force_lower=False,
+    use_ssl=False,
+    base_url=None)
 
 
 app = Flask(__name__)
@@ -100,7 +100,8 @@ def profile(username):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
     user = mongo.db.users.find_one({"username": request.form.get("username")})
-    posts = list(mongo.db.posts.find({"post_author": session["user"]}).sort("date_posted", -1))
+    posts = list(mongo.db.posts.find(
+        {"post_author": session["user"]}).sort("date_posted", -1))
     if session["user"]:
         return render_template("profile.html", username=username, profile=profile, user=user, posts=posts)
     return redirect(url_for("login"))
@@ -141,7 +142,7 @@ def edit_post(post_id):
 
         mongo.db.posts.update({"_id": ObjectId(post_id)}, submit_edit)
         flash("Review Successfully Updated", 'success')
-    
+
     post = mongo.db.posts.find_one({"_id": ObjectId(post_id)})
     blogs = mongo.db.post_content.find().sort("date", 1)
     return render_template("edit_post.html", post=post, blogs=blogs)
@@ -167,7 +168,7 @@ def edit_profile(user_id):
     user = mongo.db.users.find_one({"_id": ObjectId(user_id)})
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    
+
     return render_template("edit_profile.html", user=user)
 
 

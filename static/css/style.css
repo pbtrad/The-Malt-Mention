@@ -9,7 +9,7 @@ body {
   }
 
 .accordion-card {
-  background-color: #728A8C;
+  background: linear-gradient(to right, #ee5a6f, #f29263, #fafafa);
 }
 
   h1 {

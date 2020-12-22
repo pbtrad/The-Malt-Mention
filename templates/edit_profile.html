@@ -32,13 +32,14 @@
     		    
     		    
     		    <div class="form-group">
-    		        <button type="submit" class="btn btn-primary btn-sm">
+    		        <!--<button type="submit" class="btn btn-primary btn-sm">
     		            Edit
-    		        </button>
+					</button>-->
+					<a class="btn btn-primary btn-sm" href="{{ url_for('profile', username=session['user']) }}" role="button" type="submit">Done</a>
     		        <!--<button class="btn btn-default">
     		            Cancel
                     </button>-->
-                    <a class="btn btn-primary btn-sm" href="{{ url_for('profile', username=session['user']) }}" role="button">Exit</a>
+                    <a class="btn btn-primary btn-sm" href="{{ url_for('profile', username=session['user']) }}" role="button">Back</a>
     		    </div>
     		    
     		</form>
