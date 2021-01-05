@@ -18,7 +18,6 @@ Welcome to The Malt Mention, if you like your whiskey and want to consort with l
   * Color
   * Layout
   * Images
-* Planning
 * Wireframes
   * Website Layout
   * Account Creation Flowchart
@@ -80,3 +79,33 @@ Tiarnan says: "I am looking for a tool that will not only work on my desktop com
 * The users feel informed and satisfied with the overall website experience.
 
 ## Design:
+
+**Colors**:
+
+The colors used are from a "whiskey" palette, a green (#94A356) for the navbar, and warm tones in gradient (#ee5a6f, #f29263) for profile container and accordion.
+
+**Layout**:
+
+The website is a community blog, with users posts publicly displayed, so posts are in blog style containers, with all relevent information, post authors username, date and time a review was created. The navbar is bootstrap and reponsive across all device sizes.
+The profile page has a container positioned in the center of the page, with all relevent profile information - username, location, whiskey of choice.
+All forms are bootstrap forms for responsive design.
+
+**Images**:
+
+Images used are of the inside of whiskey distilleries and give a warm homely feel, and welcoming to new users.
+
+## Wireframes/Flowcharts:
+
+Wireframes can be found here
+
+Account creation flowchart can be found here
+
+**Database Design**:
+
+Using the NoSQL database MongoDB, I created the following collections.
+
+Users collection:
+
+ 
+
+
