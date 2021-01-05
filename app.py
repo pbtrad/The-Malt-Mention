@@ -100,7 +100,7 @@ def profile(username):
     user = mongo.db.users.find_one({"username": request.form.get("username")})
     user_info = list(mongo.db.users.find({
         "favourite_whiskey": session["user"],
-        "user_country": request.form.get("user_country")
+        "user_country": session["user"]
     }))
     # mongo.db.users.find(user_info)
     posts = list(mongo.db.posts.find(

@@ -1,0 +1,7 @@
+[{
+    "_id": "<ObjectId()>",
+    "post_title": "<string>",
+    "post_author": "<string>",
+    "post_content": "<string>",
+    "date_posted": "<string>"
+}]
