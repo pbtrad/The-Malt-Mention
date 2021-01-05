@@ -4,48 +4,35 @@
 <!--Profile Page Container from https://bbbootstrap.com/snippets/social-profile-container-63944396-->
 
 <style>
-    body {
-        background-image: url(../../static/images/shot-whiskey.jpg);
-    }
+	body {
+		background-image: url(../../static/images/shot-whiskey.jpg);
+	}
 </style>
-
 
 <div class="container">
 	<div class="row">
-	    
-	    <div class="col-md-8 col-md-offset-2">
-	        
-    		<h1>Edit Profile</h1>
-    		
-    		<form action="{{ url_for('edit_profile', user_id=user._id) }}" method="POST">
-    		    
-    		    <div class="form-group">
-    		        <label for="user_country">Location</label>
-    		        <input type="text" class="form-control" id="user_country" name="user_country" minlength="1" maxlength="50" value="{{ user.user_country }}" required/>
-    		    </div>
-    		
-    		    <div class="form-group">
-    		        <label for="favourite_whiskey">Whiskey of choice</label>
-    		        <input type="text" class="form-control" id="favourite_whiskey" name="favourite_whiskey" minlength="1" maxlength="50" value="{{ user.favourite_whiskey }}" required/>
-    		    </div>
-    		
-    		    
-    		    
-    		    <div class="form-group">
-    		        <button type="submit" class="btn btn-primary btn-sm">
-    		            Edit 
+		<div class="col-md-8 col-md-offset-2">
+			<h1>Edit Profile</h1>
+			<form action="{{ url_for('edit_profile', user_id=user._id) }}" method="POST">
+				<div class="form-group">
+					<label for="user_country">Location</label>
+					<input type="text" class="form-control" id="user_country" name="user_country" minlength="1"
+						maxlength="50" value="{{ user.user_country }}" required />
+				</div>
+				<div class="form-group">
+					<label for="favourite_whiskey">Whiskey of choice</label>
+					<input type="text" class="form-control" id="favourite_whiskey" name="favourite_whiskey"
+						minlength="1" maxlength="50" value="{{ user.favourite_whiskey }}" required />
+				</div>
+				<div class="form-group">
+					<button type="submit" class="btn btn-primary btn-sm">
+						Edit
 					</button>
-					
-					<!--<a class="btn btn-primary btn-sm" href="{{ url_for('profile', username=session['user']) }}" role="button" type="submit">Done</a>-->
-    		        <!--<button class="btn btn-default">
-    		            Cancel
-                    </button>-->
-                    <a class="btn btn-primary btn-sm" href="{{ url_for('profile', username=session['user']) }}" role="button">Back</a>
-    		    </div>
-    		    
-    		</form>
+					<a class="btn btn-primary btn-sm" href="{{ url_for('profile', username=session['user']) }}"
+						role="button">Back</a>
+				</div>
+			</form>
 		</div>
-		
 	</div>
 </div>
 

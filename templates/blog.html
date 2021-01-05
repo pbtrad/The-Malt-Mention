@@ -5,19 +5,14 @@
 <!-- Create Review Form -->
 <div class="container">
 	<div class="row">
-
 		<div class="col-md-8 col-md-offset-2">
-
 			<h1>Create Review</h1>
-
 			<form action="{{ url_for('blog') }}" method="POST">
-
 				<div class="form-group">
 					<label for="post_title">Whiskey Name<span class="require">*</span></label>
 					<input type="text" class="form-control" id="post_title" name="post_title" minlength="5"
 						maxlength="50" required />
 				</div>
-
 				<div class="form-group">
 					<label for="post_content">Create Review</label>
 					<textarea rows="10" class="form-control" name="post_content" id="post_content" minlength="25"
@@ -27,7 +22,6 @@
 				<div class="form-group">
 					<p><span class="require">*</span> - required fields</p>
 				</div>
-
 				<div class="form-group">
 					<button type="submit" class="btn btn-primary btn-sm">
 						Create
@@ -35,12 +29,9 @@
 					<button class="btn btn-danger btn-sm">
 						Cancel
 					</button>
-
 				</div>
-
 			</form>
 		</div>
-
 	</div>
 </div>
 

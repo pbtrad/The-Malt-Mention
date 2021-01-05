@@ -94,8 +94,10 @@ def login():
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
     # grab session users username from database
+    print(username)
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
+    print(username)
     user = mongo.db.users.find_one({"username": request.form.get("username")})
     user_info = list(mongo.db.users.find({
         "favourite_whiskey": session["user"],
@@ -151,7 +153,7 @@ def edit_post(post_id):
         flash("Review Successfully Updated", 'success')
 
     post = mongo.db.posts.find_one(
-        {"_id": ObjectId(post_id)}).sort("date_posted", -1)
+        {"_id": ObjectId(post_id)})
     return render_template("edit_post.html", post=post)
 
 
