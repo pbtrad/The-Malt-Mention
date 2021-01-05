@@ -16,6 +16,8 @@
     }, false);
   })();
 
+// Pop Up Modal - only pops up once per session
+
   $(window).on('load',function(){
     if (!sessionStorage.getItem('shown-modal')){
       $('#exampleModalLong').modal('show');

@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
 
+<!-- Register form -->
+
 <h3 class="text-center text-light">Register</h3>
 
 <div class="card bg-transparent">
@@ -8,31 +10,35 @@
         <div class="row justify-content-center">
             <form method="POST" action="{{ url_for('register') }}">
                 <div class="form-group">
-                    <input id="username" name="username" type="text" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
-						<label class="text-light" for="username">Username</label>
+                    <input id="username" name="username" type="text" minlength="5" maxlength="15"
+                        pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
+                    <label class="text-light" for="username">Username</label>
 
                 </div>
                 <div class="form-group">
-                    <input id="password" name="password" type="password" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
-						<label class="text-light" for="password">Password</label>
+                    <input id="password" name="password" type="password" minlength="5" maxlength="15"
+                        pattern="^[a-zA-Z0-9]{5,15}$" class="validate" required>
+                    <label class="text-light" for="password">Password</label>
                 </div>
                 <div class="form-group">
-                    <input id="user_country" name="user_country" type="text" minlength="5" maxlength="15"  class="validate" required>
-						<label class="text-light" for="user_country">Location</label>
+                    <input id="user_country" name="user_country" type="text" minlength="5" maxlength="15"
+                        class="validate" required>
+                    <label class="text-light" for="user_country">Location</label>
                 </div>
                 <div class="form-group">
-                    <input id="favourite_whiskey" name="favourite_whiskey" type="text" minlength="1" maxlength="15" class="validate" required>
-						<label class="text-light" for="favourite_whiskey">Whiskey of Choice</label>
+                    <input id="favourite_whiskey" name="favourite_whiskey" type="text" minlength="1" maxlength="15"
+                        class="validate" required>
+                    <label class="text-light" for="favourite_whiskey">Whiskey of Choice</label>
                 </div>
-                
+
                 <button type="submit" class="btn btn-primary btn-sm">Register</button>
                 <small class="text-muted">
                     Already have An Account? <a class="ml-2" href="{{ url_for('login') }}">Log In</a>
                 </small>
-            </form>  
-            
+            </form>
+
         </div>
-        
+
     </div>
 </div>
 

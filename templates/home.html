@@ -1,48 +1,53 @@
 {% extends "base.html" %}
 {% block content %}
 <button type="button" class="btn btn-primary invisible" data-toggle="modal" data-target="#exampleModalLong">
-    Launch demo modal
-  </button>
-  
-  <!-- Modal -->
-  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title mx-auto" id="exampleModalLongTitle">The Malt Mention</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body f-w-600 ">
-          Welcome to The Malt Mention, a community of drunks who like to praise or rant about whiskeys, but because there's alcohol involved this community of lushes is only for grown ups, so if you are under 18 or whatever local drinking age, do not enter!! 
-          <img src="static/images/modal-photo-whiskey.jpg" class="rounded mx-auto img-fluid" alt="#">
-        </div>
-        
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Yes I'm over 18</button>
-        </div>
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">The Malt Mention</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body f-w-600 ">
+        Welcome to The Malt Mention, a community of drunks who like to praise or rant about whiskeys, but because
+        there's alcohol involved this community of lushes is only for grown ups, so if you are under 18 or whatever
+        local drinking age, do not enter!!
+        <img src="static/images/modal-photo-whiskey.jpg" class="rounded mx-auto img-fluid" alt="#">
+      </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Yes I'm over 18</button>
       </div>
     </div>
   </div>
+</div>
+
+
+<!-- Display Posts -->
 
 {% for post in posts %}
 <article class="media content-section">
-    <div class="media-body">
-        <div class="article-metadata">
-            {% if session.user|lower == post.post_author|lower %}
-            <a href="{{ url_for('delete_post', post_id=post._id) }}" class="btn btn-danger btn-sm"
-                role="button">Delete</a>
-            <a href="{{ url_for('edit_post', post_id=post._id) }}" class="btn btn-info btn-sm" role="button">Edit</a>
-            {% endif %}
-            <!--<a class="mr-2" href="#">{{ post.post_author }}</a>-->
-            <small class="text-muted">{{ post.post_author }}</small>
-            <small class="text-muted">{{ post.date_posted }}</small>
-        </div>
-        <h2 class="article-title">{{ post.post_title }}</h2>
-        <p class="article-content">{{ post.post_content }}</p>
-
+  <div class="media-body">
+    <div class="article-metadata">
+      {% if session.user|lower == post.post_author|lower %}
+      <a href="{{ url_for('delete_post', post_id=post._id) }}" class="btn btn-danger btn-sm" role="button">Delete</a>
+      <a href="{{ url_for('edit_post', post_id=post._id) }}" class="btn btn-info btn-sm" role="button">Edit</a>
+      {% endif %}
+      <!--<a class="mr-2" href="#">{{ post.post_author }}</a>-->
+      <small class="text-muted">{{ post.post_author }}</small>
+      <small class="text-muted">{{ post.date_posted }}</small>
     </div>
+    <h2 class="article-title">{{ post.post_title }}</h2>
+    <p class="article-content">{{ post.post_content }}</p>
+
+  </div>
 </article>
 
 {% endfor %}

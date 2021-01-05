@@ -1,78 +1,83 @@
 {% extends "base.html" %}
 {% block content %}
 
-<!--https://bbbootstrap.com/snippets/social-profile-container-63944396-->
+<!--Profile Page Container from https://bbbootstrap.com/snippets/social-profile-container-63944396-->
 <style>
     body {
         background-image: url(../../static/images/shot-whiskey.jpg);
     }
 </style>
 <div class="page-content page-container" id="page-content">
-    
-        <div class="row container d-flex justify-content-center">
-            <div class="col-xl-6 col-md-12">
-                <div class="card user-card-full">
-                    <div class="row m-l-0 m-r-0">
-                        <div class="col-sm-4 bg-c-lite-green user-profile">
-                            <div class="card-block text-center">
-                                <div class="m-b-25"> <img src="https://i.pravatar.cc/100"
-                                        class="img-radius" alt="User-Profile-Image"></div>
-                                <h6 class="f-w-600">{{ username }}</h6>
 
-                            </div>
+    <div class="row container d-flex justify-content-center">
+        <div class="col-xl-6 col-md-12">
+            <div class="card user-card-full">
+                <div class="row m-l-0 m-r-0">
+                    <div class="col-sm-4 bg-c-lite-green user-profile">
+                        <div class="card-block text-center">
+                            <div class="m-b-25"> <img src="../../static/images/avatar1.jpg" class="img-radius img-thumbnail"
+                                    alt="User-Profile-Image"></div>
+                            <h6 class="f-w-600">{{ username }}</h6>
+
                         </div>
-                        <div class="col-sm-8">
-                            <div class="card-block">
-                                <h3 class="m-b-20 p-b-5 b-b-default f-w-600">{{ username }}'s Profile</h3>
-                                <div class="row justify-content-center">
-                                    <div class="col-sm-6">
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="card-block">
+                            <h3 class="m-b-20 p-b-5 b-b-default f-w-600">{{ username }}'s Profile</h3>
+                            <div class="row justify-content-center">
+                                <div class="col-sm-6">
 
-                                        <p class="m-b-10 f-w-600">Location</p>
-                                        
-                                        <h6 class="f-w-400">{{ user.user_country }}</h6>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="m-b-10 f-w-600">Favourite Whiskey</p>
-                                        <h6 class="f-w-400">{{ user.favourite_whiskey }}</h6>
-                                       
-                                    </div>
-                                        
-                                    <!--<a href="#" class="btn btn-danger" role="button">Delete</a>-->
-                                    
-                                    <a href="{{ url_for('edit_profile', user_id=user._id) }}" class="btn btn-info btn-sm" id="edit-button"
-                                        role="button">Edit</a>
-                                    
+                                    <p class="m-b-10 f-w-600">Location</p>
+
+                                    <h6 class="f-w-400">{{ user.user_country }}</h6>
+
+                                </div>
+                                <div class="col-sm-6">
+                                    <p class="m-b-10 f-w-600">Favourite Whiskey</p>
+                                    <h6 class="f-w-400">{{ user.favourite_whiskey }}</h6>
+
                                 </div>
 
+                                <!--<a href="#" class="btn btn-danger" role="button">Delete</a>-->
+
+                                <a href="{{ url_for('edit_profile', user_id=user._id) }}" class="btn btn-info btn-sm"
+                                    id="edit-button" role="button">Edit</a>
 
                             </div>
+
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    
+    </div>
+
 </div>
+
+<!-- Accordion of Users Previous Post Submissions-->
+
 <p class="sub-head mx-auto text-center m-b-20">Previous Submissions</p>
 <div id="accordion">
-{% for post in posts %}
+    {% for post in posts %}
     <div class="card">
-      <div class="card-header accordion-card">
-        <a class="card-link text-dark" data-toggle="collapse" href="#collapseOne">
-          {{ post.post_title }} {{ post.date_posted }}
-          <a class="btn btn-primary btn-sm float-right" href="{{ url_for('edit_post', post_id=post._id) }}" role="button">Edit Review</a>
-        </a>
-      </div>
-      <div id="collapseOne" class="collapse" data-parent="#accordion">
-        <div class="card-body">
-          {{ post.post_content }}
+        <div class="card-header accordion-card">
+            <a class="card-link text-dark" data-toggle="collapse" href="#collapseOne">
+                {{ post.post_title }} {{ post.date_posted }}
+                <a class="btn btn-primary btn-sm float-right" href="{{ url_for('edit_post', post_id=post._id) }}"
+                    role="button">Edit Review</a>
+            </a>
         </div>
-      </div>
+        <div id="collapseOne" class="collapse" data-parent="#accordion">
+            <div class="card-body">
+                {{ post.post_content }}
+            </div>
+        </div>
     </div>
-  
-    
-  
-  </div>
+
+
+
+</div>
 {% endfor %}
 
 {% endblock %}

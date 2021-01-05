@@ -1,5 +1,3 @@
-
-
 body {
     background: url(../../static/images/whiskey-frontpage.jpg) no-repeat center center fixed;
     background-size: cover;
@@ -114,23 +112,7 @@ label {
   
 }
 
-@include media-breakpoint-up(sm) {
-  .navbar-brand {
-    font-size: 1.2rem;
-  }
-}
 
-@include media-breakpoint-up(md) {
-  .navbar-brand {
-    font-size: 1.4rem;
-  }
-}
-
-@include media-breakpoint-up(lg) {
-  .navbar-brand {
-    font-size: 1.6rem;
-  }
-}
 
 .padding {
   padding: 3rem !important
@@ -253,6 +235,8 @@ h6 {
   font-size: larger;
   color: #fafafa;
 }
+
+
 
 
 /* Media Queries*/

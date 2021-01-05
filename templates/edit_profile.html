@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-<!--https://bbbootstrap.com/snippets/social-profile-container-63944396-->
+<!--Profile Page Container from https://bbbootstrap.com/snippets/social-profile-container-63944396-->
 
 <style>
     body {
@@ -32,10 +32,11 @@
     		    
     		    
     		    <div class="form-group">
-    		        <!--<button type="submit" class="btn btn-primary btn-sm">
-    		            Edit
-					</button>-->
-					<a class="btn btn-primary btn-sm" href="{{ url_for('profile', username=session['user']) }}" role="button" type="submit">Done</a>
+    		        <button type="submit" class="btn btn-primary btn-sm">
+    		            Edit 
+					</button>
+					
+					<!--<a class="btn btn-primary btn-sm" href="{{ url_for('profile', username=session['user']) }}" role="button" type="submit">Done</a>-->
     		        <!--<button class="btn btn-default">
     		            Cancel
                     </button>-->
