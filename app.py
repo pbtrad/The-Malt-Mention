@@ -29,7 +29,6 @@ mongo = PyMongo(app)
 @app.route("/")
 @app.route("/home")
 def home():
-    #posts = list(mongo.db.posts.find())
     posts = mongo.db.posts.find().sort("date_posted", -1)
     return render_template("home.html", posts=posts)
 
@@ -56,7 +55,7 @@ def register():
 
         # put the new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
-        flash('Your account has been created! You are now able to log in', 'success')
+        flash('Your account has been created! You are now able to log in')
         return redirect(url_for("profile", username=session["user"]))
 
     return render_template("register.html")
@@ -106,7 +105,9 @@ def profile(username):
     posts = list(mongo.db.posts.find(
         {"post_author": session["user"]}).sort("date_posted", -1))
     if session["user"]:
-        return render_template("profile.html", username=username, profile=profile, user=user, posts=posts, user_info=user_info)
+        return render_template(
+            "profile.html", username=username, profile=profile,
+             user=user, posts=posts, user_info=user_info)
     return redirect(url_for("login"))
 
 
@@ -151,7 +152,6 @@ def edit_post(post_id):
 
     post = mongo.db.posts.find_one(
         {"_id": ObjectId(post_id)}).sort("date_posted", -1)
-    #blogs = mongo.db.post_content.find().sort("date", 1)
     return render_template("edit_post.html", post=post)
 
 
