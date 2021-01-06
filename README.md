@@ -132,8 +132,34 @@ Posts collection:
 * Register account form, sign-in and sign-out functionality.
 * Personalised profile page where users can see their own post history.
 * Users can leave reviews, delete their reviews and read reviews from other website users.
-* 
 
+**Features yet to be implemented**:
 
+* A direct messaging service between users.
+* A live chatroom using a new collection in the websites database.
+* The addition of a whiskey API so users can use readily made data.
+* Email authentication to provide extra security.
+* Extra personalisation of profile page including avatar options.
 
+## Technologies Used:
+
+**Languages**:
+
+* [HTML](https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics)
+* [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)
+* [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
+* [Python](https://en.wikipedia.org/wiki/Python_(programming_language))
+
+**Tools and Libraries**:
+
+* [jQuery](https://jquery.com/)
+* [Git](https://git-scm.com/)
+* [Bootstrap](https://getbootstrap.com/)
+* [Font-Awesome](https://fontawesome.com/)
+* [MongoDB Atlas](https://www.mongodb.com/)
+* [PyMongo](https://pypi.org/project/pymongo/)
+* [Flask](https://flask.palletsprojects.com/en/1.1.x/)
+* [Jinja](https://jinja.palletsprojects.com/en/2.11.x/)
+
+## Planning and Testing:
 
