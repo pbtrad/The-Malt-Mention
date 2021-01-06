@@ -106,6 +106,11 @@ Using the NoSQL database MongoDB, I created the following collections.
 
 Users collection:
 
- 
-
+| Title        | Data Type|
+| ------------- |:-------------:|
+| id:      | ObjectId |
+| username      | string      |
+| password | binary_hashed_string      |
+| user_country | string |
+| user_whiskey | string |
 
