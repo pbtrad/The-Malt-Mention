@@ -129,6 +129,9 @@ Posts collection:
 **Current Features**:
 
 * Simple, clear and responsive navigation throughout website.
+* Register account form, sign-in and sign-out functionality.
+* Personalised profile page where users can see their own post history.
+* Users can leave reviews, delete their reviews and read reviews from other website users.
 * 
 
 
