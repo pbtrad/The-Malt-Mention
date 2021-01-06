@@ -114,3 +114,23 @@ Users collection:
 | user_country | string |
 | user_whiskey | string |
 
+Posts collection:
+
+| Title        | Data Type|
+| ------------- |:-------------:|
+| id:      | ObjectId |
+| post_title      | string      |
+| post_author | string      |
+| post_content | string |
+| date_posted | string |
+
+## Features:
+
+**Current Features**:
+
+* Simple, clear and responsive navigation throughout website.
+* 
+
+
+
+
