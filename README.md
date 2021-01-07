@@ -163,3 +163,43 @@ Posts collection:
 
 ## Planning and Testing:
 
+**Register account**:
+
+* **Plan**: I need to implement a form for account registration where users can perform actions on the website, and where these actions manipulate or create records within the MongoDB collections.
+ 
+* **Implementation**: The session package was required to handle the request where usernames are checked for duplicates in the database, and if there are any typos are present on form. Werkzeug is used for password hashing for basic security.  The data posted on registration form is passed into the users collection in MongoDB.
+
+* **Test**: To test the registration form I created temporary accounts and checked that the data was passed and stored in the database.
+
+* **Result**: Test passed as data sent to database successfully, with user signed into session and passwords encrypted.
+
+**Log in to Account**:
+
+* **Plan**: I needed to build a page with a functioning log in form, so users can gain access to the features of the website.
+
+* **Implementation**: The code checks the information from the log in form request and matches the information stored in the users database.  When matched the session is connected with the user. Flash messages are triggered whether log in is successful or not.
+
+* **Test**: I created a several test accounts and attempted to log in.
+
+* **Result**: Test passed, session was made and log in successful on every attempt.
+
+**Log out of Account**:
+
+* **Plan**: I needed to create a sign out feature.
+
+* **Implementation**: Created route and method for logging out of session.
+
+* **Test**: Using previously created accounts and attempted to log out.
+
+* **Result**: Test passed, session cleared.
+
+**Create Review**:
+
+* **Plan**: I needed to build a page where users can create and post their own reviews and the post data passed to the database.
+
+* **Implementation**: Created a form for text input and set up dictionary json with four sets of data- post-title, post_author, post_content and date_posted so to use insert_one pymongo command. Datetime imported for date_posted data. Flash message on successful post and redirect to home page.
+
+* **Test**: Using test accounts I created several posts.
+
+* **Result**: After submitting review, post appears on home page where it should and data successfully passed to post collection in MonogDB. Test successful.
+
