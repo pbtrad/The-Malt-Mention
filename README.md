@@ -232,3 +232,109 @@ Posts collection:
 * **Test**: Loaded website from cleared cache in browser to check for modal.
 
 * **Result**: Modal pops up successfully when new user sees the website.
+
+**Front End Design**:
+
+For the front end part of the websites design I planned on using bootstrap wherever possible in order to write less CSS and concentrate on the CRUD end of the project, without having to worry too much about responsiveness. This can be seen throughout the HTML.
+I tested the responsiveness of the website using all device sizes and browsers and encountered no major issues.
+
+## Bugs:
+
+This being my first venture into programming with python most bugs I encountered were to do with proper syntax, indentation, and case-sensitive issues.
+I used VSCode to build the website so with a python linting and debugging extension I was notified of incorrect syntax and errors with proper python layout.
+
+When updating requirements.txt all packages within virtual environment were added causing problems with heroku deployment, I had to delete these unused often out of date packages for successful heroku build.
+
+## Deployment:
+
+The Malt Mention was developed on Visual Studio Code with WSL: Ubuntu and using git and GitHub to host the repository.
+
+**Cloning The Malt Mention from GitHub:
+
+Install the following:
+
+* Git
+* PIP
+* Python3
+
+Create an account at [MongoDB](https://www.mongodb.com/3) to construct database.
+
+* 1: Clone the Malt Mention depository using Git by typing the following command into the terminal.
+
+```
+git clone https://github.com/pbtrad/ms3-mock3
+```
+
+* 2: Go to this folder in your terminal.
+* 3: Enter the following command into your terminal.
+
+```
+python3 -m .venv venv
+```
+
+* 4: Intialize the environment by enetering the following command.
+
+```
+.venv\bin\activate
+```
+
+* 5: Install the requirements and dependancies from the requirements.txt file.
+
+```
+pip3 -r requirements.txt
+```
+
+* 6: In an IDE create file where SECRET_KEY and MONGO_URI can be stored, then follow the schema in the schema file.
+* 7: Run the application by entering.
+
+```
+flask run
+```
+
+or
+
+```
+python3 app.py
+```
+
+**Deploying the website to Heroku**:
+
+* 1: Create a requirements.txt file by entering the following command.
+
+```
+pip3 freeze > requirements.txt
+```
+
+* 2: Create a Procfile.
+
+```
+echo web: python app.py > Procfile
+```
+
+* 3: Push files to your repository.
+* 4: On Heroku dashboard create a new app.
+* 5: Select deployment method and select GitHub.
+* 6: On the dashboard set config variables:
+
+| Key  | Value |
+| ------------- | ------------- |
+| IP  | 0.0.0.0  |
+| PORT  | 5000  |
+| MONGO_URI | mongodb+srv://:@<cluster_name>-qtxun.mongodb.net/<database_name>?retryWrites=true&w=majority  |
+| SECRET_KEY | "your_secret-key" |
+
+* 7: Select the deploy button on the Heroku dashboard.
+* 8: Your site is deployed by Heroku.
+
+## Credits:
+
+* [Corey Schafer Flask Tutorial](https://www.youtube.com/channel/UCCezIgC97PvUuR4_gbFUs5g) for design ideas for home page.
+* [bbbootstrap](https://bbbootstrap.com) for profile page ideas.
+* Forms are from [getbootstrap.com](https://getbootstrap.com/) with some required tweeking for the website.
+* The humourous whiskey reviews are from [https://www.thespiritsbusiness.com/](https://www.thespiritsbusiness.com/2017/04/top-10-unusual-scotch-whisky-reviews/)
+
+## Acknowledgements:
+* Code Institute Slack channels and those who contributed to them.
+* Adegbenga Adeye for mentoring support throughout the project.
+
+
