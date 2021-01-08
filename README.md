@@ -203,3 +203,32 @@ Posts collection:
 
 * **Result**: After submitting review, post appears on home page where it should and data successfully passed to post collection in MonogDB. Test successful.
 
+**Edit Review**:
+
+* **Plan**: I needed to provide the option for users to edit and update their own posts.
+
+* **Implementation**: Created edit post functionality with proper route and methods.  The data to be passed to collection with .update. Flash message triggered on successful edit.
+
+* **Test**: After creating and posting a review from a test account, I attempted to update it.
+
+* **Result**: Post successfully edited and data updated in MongoDB collection.
+
+**Delete Review**: 
+
+* **Plan**: I needed to provide the option for user to delete reviews posted.
+
+* **Implementation**: Created functionality for deletion and .remove command to also delete the corresponding data from MongoDB collection. Flash message triggered to inform of successful deletion.
+
+* **Test**: After creating and posting a review with test account, I deleted it with created delete button. 
+
+* **Result**: Post successfully deleted from review page and corresponding data deleted from MonogDB collection.
+
+**Pop Up Modal**:
+
+* **Plan**: I wanted to create an age disclaimer and small introduction to website on initial load of the page for new users.
+
+* **Implementation**: I created a Bootstrap Modal with JavaScript to pop up on new user session using sessionStorage in JavaScript.
+
+* **Test**: Loaded website from cleared cache in browser to check for modal.
+
+* **Result**: Modal pops up successfully when new user sees the website.
