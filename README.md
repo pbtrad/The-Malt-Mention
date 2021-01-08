@@ -321,7 +321,7 @@ echo web: python app.py > Procfile
 | IP  | 0.0.0.0  |
 | PORT  | 5000  |
 | MONGO_URI | mongodb+srv://:@<cluster_name>-qtxun.mongodb.net/<database_name>?retryWrites=true&w=majority  |
-| SECRET_KEY | "your_secret-key" |
+| SECRET_KEY | "your_secret_key" |
 
 * 7: Select the deploy button on the Heroku dashboard.
 * 8: Your site is deployed by Heroku.
