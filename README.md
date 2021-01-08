@@ -2,7 +2,7 @@
 
 ![iamrespimg](https://github.com/pbtrad/ms3-mock3/blob/master/static/images/amirespimgms3.png)
 
-Welcome to The Malt Mention, if you like your whiskey and want to consort with like minded whiskey critics, leave reviews of your best and worst whiskey experiences and become involved in a community of whiskey lovers.
+Welcome to [The Malt Mention](http://flask-blog-pbtrad.herokuapp.com/home), if you like your whiskey and want to consort with like minded whiskey critics, leave reviews of your best and worst whiskey experiences and become involved in a community of whiskey lovers.
 
 
 ## Contents:
@@ -321,7 +321,7 @@ echo web: python app.py > Procfile
 | IP  | 0.0.0.0  |
 | PORT  | 5000  |
 | MONGO_URI | mongodb+srv://:@<cluster_name>-qtxun.mongodb.net/<database_name>?retryWrites=true&w=majority  |
-| SECRET_KEY | "your_secret-key" |
+| SECRET_KEY | "your_secret_key" |
 
 * 7: Select the deploy button on the Heroku dashboard.
 * 8: Your site is deployed by Heroku.
